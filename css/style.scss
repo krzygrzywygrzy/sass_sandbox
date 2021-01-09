@@ -1,5 +1,6 @@
-//variable
+//variables
 $primarycolor: #272727;
+$textcolor: #fff;
 
 //map
 $font-weights: (
@@ -11,5 +12,18 @@ $font-weights: (
 body {
   background: $primarycolor;
 
-  font-weight: map-get($font-weights, bold);
+  color: $textcolor;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+
+  #{&}__paragraph {
+    font-weight: map-get($font-weights, bold);
+
+    &:hover {
+      color: pink;
+    }
+  }
 }
