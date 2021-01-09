@@ -1,0 +1,15 @@
+//variable
+$primarycolor: #272727;
+
+//map
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+body {
+  background: $primarycolor;
+
+  font-weight: map-get($font-weights, bold);
+}
