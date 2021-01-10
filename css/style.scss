@@ -15,6 +15,13 @@ $font-weights: (
   @return map-get($font_weights, $weight);
 }
 
+@mixin flexCenter($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
 body {
   background: $primarycolor;
 
@@ -22,6 +29,7 @@ body {
 }
 
 .main {
+  @include flexCenter(column);
   width: 80%;
   margin: 0 auto;
 
