@@ -11,6 +11,8 @@ $font-weights: (
   "bold": 700,
 );
 
+$mobile: 800px;
+
 @function weight($weight) {
   @return map-get($font_weights, $weight);
 }
@@ -22,6 +24,19 @@ $font-weights: (
   flex-direction: $direction;
 }
 
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primarycolor, 100%);
+    color: darken($textcolor, 100%);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
 body {
   background: $primarycolor;
 
@@ -29,7 +44,7 @@ body {
 }
 
 .main {
-  @include flexCenter(column);
+  @include flexCenter(row);
   width: 80%;
   margin: 0 auto;
 
@@ -40,4 +55,12 @@ body {
       color: pink;
     }
   }
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.light {
+  @include theme($light-theme: true);
 }
